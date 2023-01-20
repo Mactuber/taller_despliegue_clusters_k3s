@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-letschat
+  annotations:
+    traefik.ingress.kubernetes.io/affinity: "true"
+spec:
+  rules:
+  - host: www.letschat.com
+    http:
+      paths:
+      - path: "/"
+        backend:
+          serviceName: letschat
+          servicePort: 8080
